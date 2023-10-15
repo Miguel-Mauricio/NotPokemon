@@ -11,9 +11,9 @@ public class Level {
 
     public Level(Player player) {
         this.player = player;
-        solids = new Solid[1];
-        Rock rock = new Rock();
-        solids[0] = rock;
+        solids = new Solid[2];
+        solids[0] = new Rock(100, 50);
+        solids[1] = new Rock(300, 400);
 
     }
 

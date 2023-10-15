@@ -1,5 +1,6 @@
 package io.code4all.notpokemon;
 
+import io.code4all.notpokemon.game_objects.pokemon.Pokemon;
 import org.academiadecodigo.simplegraphics.graphics.Ellipse;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
@@ -7,6 +8,8 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 public class Player {
 
     private Picture picture;
+    private Pokemon pokemon;
+
 
     public Player(){
        this.picture = new Picture(10, 10, "io/code4all/notpokemon/pictures/player.png");
@@ -36,4 +39,7 @@ public class Player {
         picture.translate(0,10);
     }
 
+    public void setPokemon(Pokemon pokemon) {
+        this.pokemon = pokemon;
+    }
 }

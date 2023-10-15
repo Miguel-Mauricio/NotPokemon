@@ -8,7 +8,7 @@ public abstract class Pokemon extends GameObject {
     private int health;
     private boolean dead;
     private Picture picture;
-    private int damageAtack;
+    private int attackDamage;
     private int defence;
 
     public void hit(int damage){
@@ -31,7 +31,7 @@ public abstract class Pokemon extends GameObject {
                 "health=" + health +
                 ", dead=" + dead +
                 ", picture=" + picture +
-                ", damageAtack=" + damageAtack +
+                ", attackDamage=" + attackDamage +
                 ", defence=" + defence +
                 '}';
     }

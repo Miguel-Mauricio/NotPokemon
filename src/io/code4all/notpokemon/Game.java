@@ -4,6 +4,9 @@ import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Game {
+    public static final int GAME_WIDTH = 800;
+    public static final int GAME_HEIGHT = 600;
+    public static final int PADDING = 10;
     private Player player;
     private Background background;
     // TODO
@@ -12,7 +15,7 @@ public class Game {
     private Level level;
 
     public void init(){
-        this.background = new Background(new Rectangle(10, 10, 1000, 1000));
+        this.background = new Background(new Rectangle(PADDING, PADDING, GAME_WIDTH, GAME_HEIGHT));
         this.player = new Player();
         this.level = new Level(player);
 

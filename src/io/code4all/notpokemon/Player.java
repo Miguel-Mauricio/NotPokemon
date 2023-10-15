@@ -8,12 +8,12 @@ public class Player {
 
     private Picture picture;
 
-    public Player(Picture picture){
-        this.picture = picture;
+    public Player(){
+       this.picture = new Picture(10, 10, "io/code4all/notpokemon/pictures/ashDown.png");
     }
 
 
-Picture getPicture(){
+    Picture getPicture(){
         return picture;
 }
 

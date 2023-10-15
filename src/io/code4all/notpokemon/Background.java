@@ -12,6 +12,8 @@ public class Background {
 
   public Background(Rectangle field){
       this.field=field;
+      field.draw();
+      this.grass = new Picture(10, 10, "io/code4all/notpokemon/pictures/grassBackground.jpg");
   }
 
 
@@ -21,8 +23,8 @@ public class Background {
 
 
 
-     public Background(Picture field){
-         this.grass= field;
+     public Background(Picture picture){
+         this.grass= picture;
 
     }
 

@@ -1,3 +1,5 @@
+package io.code4all.notpokemon;
+
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 

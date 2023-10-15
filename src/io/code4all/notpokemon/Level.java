@@ -6,8 +6,8 @@ import io.code4all.notpokemon.game_objects.DangerZone;
 
 public class Level {
     private Player player;
-    Solid[] solids;
-    DangerZone[] dangerZones;
+    private Solid[] solids;
+    private DangerZone[] dangerZones;
 
     public Level(Player player) {
         this.player = player;
@@ -23,5 +23,13 @@ public class Level {
 
     public void startBattle(){
       // TODO
+    }
+
+    public DangerZone[] getDangerZones(){
+        return this.dangerZones;
+    }
+
+    public Solid[] getSolids(){
+        return this.solids;
     }
 }

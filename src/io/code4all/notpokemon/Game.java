@@ -17,12 +17,10 @@ public class Game {
     public void init(){
         this.background = new Background(new Rectangle(PADDING, PADDING, GAME_WIDTH, GAME_HEIGHT));
         this.player = new Player();
-
         background.getPicture().draw();
-
         player.getPicture().draw();
-
         this.level = new Level(player);
+        player.setLevel(level);
 
         new Handler(player);
     }

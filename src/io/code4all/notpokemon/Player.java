@@ -1,5 +1,7 @@
 package io.code4all.notpokemon;
 
+import io.code4all.notpokemon.game_objects.DangerZone;
+import io.code4all.notpokemon.game_objects.GameObject;
 import io.code4all.notpokemon.game_objects.Solid;
 import io.code4all.notpokemon.game_objects.pokemon.Pokemon;
 import org.academiadecodigo.simplegraphics.graphics.Ellipse;
@@ -31,7 +33,10 @@ public class Player {
             int y = picture.getY();
             // Checking for solids
             if (noSolids(x, y))
-                picture.translate(SPEED, 0);
+                if (!checkForHighGrassBattle(x, y))
+                    picture.translate(SPEED, 0);
+                else
+                    level.startBattle();
         }
     }
 
@@ -41,7 +46,10 @@ public class Player {
             int x = picture.getX() - SPEED;
             int y = picture.getY();
             if (noSolids(x, y))
-                picture.translate(-SPEED, 0);
+                if (!checkForHighGrassBattle(x, y))
+                    picture.translate(-SPEED, 0);
+                else
+                    level.startBattle();
         }
     }
 
@@ -51,7 +59,10 @@ public class Player {
             int x = picture.getX();
             int y = picture.getY() - SPEED;
             if (noSolids(x, y))
-                picture.translate(0, -SPEED);
+                if (!checkForHighGrassBattle(x, y))
+                    picture.translate(0, -SPEED);
+                else
+                    level.startBattle();
         }
 
 
@@ -63,19 +74,34 @@ public class Player {
             int x = picture.getX();
             int y = picture.getY() + SPEED;
             if (noSolids(x, y))
-                picture.translate(0, SPEED);
+                if (!checkForHighGrassBattle(x, y))
+                    picture.translate(0, SPEED);
+                else
+                    level.startBattle();
         }
+    }
+
+    private boolean checkForHighGrassBattle(int x, int y) {
+        for (DangerZone d : level.getDangerZones()) {
+            if (checkPlayerPositionWithOtherObj(x, y, d))
+                return Math.random() * 10 > 8;
+        }
+        return false;
     }
 
 
     private boolean noSolids(int x, int y) {
         for (Solid s : level.getSolids())
-            if (x + this.picture.getWidth() >= s.getPicture().getX() &&
-                    x <= s.getPicture().getMaxX() &&
-                    y + this.picture.getHeight() >= s.getPicture().getY() &&
-                    y <= s.getPicture().getMaxY())
+            if (checkPlayerPositionWithOtherObj(x, y, s))
                 return false;
         return true;
+    }
+
+    public boolean checkPlayerPositionWithOtherObj(int x, int y, GameObject go) {
+        return x + this.picture.getWidth() >= go.getPicture().getX() &&
+                x <= go.getPicture().getMaxX() &&
+                y + this.picture.getHeight() >= go.getPicture().getY() &&
+                y <= go.getPicture().getMaxY();
     }
 
     public void setPokemon(Pokemon pokemon) {

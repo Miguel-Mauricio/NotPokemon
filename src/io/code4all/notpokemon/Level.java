@@ -17,6 +17,11 @@ public class Level {
         solids[4] = new House(150, 200);
         solids[5] = new House(70, 300);
 
+        dangerZones = new DangerZone[3];
+        dangerZones[0] = new HighGrass(300, 50);
+        dangerZones[1] = new HighGrass(100, 70);
+        dangerZones[2] = new HighGrass(300, 160);
+
     }
 
     public void checkColisions(){
@@ -25,6 +30,7 @@ public class Level {
 
     public void startBattle(){
       // TODO
+        System.out.println("STARTING BATTLE!!!!");
     }
 
     public DangerZone[] getDangerZones(){

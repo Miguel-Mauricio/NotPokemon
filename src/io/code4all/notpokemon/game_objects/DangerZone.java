@@ -1,5 +1,6 @@
 package io.code4all.notpokemon.game_objects;
 
-public abstract class DangerZone {
+public abstract class DangerZone extends GameObject{
     // TODO
+
 }

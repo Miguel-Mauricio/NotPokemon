@@ -8,12 +8,13 @@ public class Background {
 
   private Rectangle field;
 
-  private Picture grass;
+  private Picture picture;
 
-  public Background(Rectangle field){
+  public Background(Rectangle field, Picture picture){
       this.field=field;
       field.draw();
-      this.grass = new Picture(10, 10, "io/code4all/notpokemon/pictures/grassBackground.png");
+      this.picture = picture;
+      picture.draw();
   }
 
 
@@ -21,15 +22,12 @@ public class Background {
       return field;
   }
 
-
-
-     public Background(Picture picture){
-         this.grass= picture;
-
+    public void setPicture(Picture picture) {
+        this.picture = picture;
     }
 
     Picture getPicture(){
-         return grass;
+         return picture;
     }
 
 }

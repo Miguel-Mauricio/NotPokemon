@@ -111,4 +111,8 @@ public class Player {
     public void setLevel(Level level) {
         this.level = level;
     }
+
+    public Pokemon getPokemon() {
+        return pokemon;
+    }
 }

@@ -4,7 +4,7 @@ public class ShitFly extends Pokemon{
 
     public ShitFly() {
         super("ShitFly", 1, 100, 20, 50);
-        setPicture(300, 300, "io/code4all/notpokemon/pictures/shitFly.png");
+        setPicture(730, 30, "io/code4all/notpokemon/pictures/shitFly.png");
     }
 
     @Override

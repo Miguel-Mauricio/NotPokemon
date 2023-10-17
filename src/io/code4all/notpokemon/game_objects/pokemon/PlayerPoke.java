@@ -4,7 +4,7 @@ public class PlayerPoke extends Pokemon{
 
     public PlayerPoke() {
         super("PlayerPoke", 1, 100, 50, 50);
-        setPicture(300, 300, "io/code4all/notpokemon/pictures/shitFly.png");
+        setPicture(30, 500, "io/code4all/notpokemon/pictures/shitFly.png");
     }
 
     @Override

@@ -38,21 +38,16 @@ public class Level {
     }
 
 
-    public void startBattle() {
-        // Checking witch dangerZone has player
-        DangerZone dangerZone = null;
-        for (DangerZone d : dangerZones)
-            if (player.checkPlayerPositionWithOtherObj(player.getPicture().getX(), player.getPicture().getY(), d))
-                dangerZone = d;
+    public void startBattle(DangerZone dangerZone) {
         // playTransition(); TODO
-
+        player.setMove(false);
         BattleGround battleGround = new BattleGround(player.getPokemon(), dangerZone.getPokemon());
-        battleGround.start();
+        battleGround.draw();
         //battleGround.cleanGameObjects();
 
         // Reanimate dead or not Pokemon
         dangerZone.getPokemon().reanimate();
-
+       // player.setMove(true);
     }
 
     public DangerZone[] getDangerZones() {

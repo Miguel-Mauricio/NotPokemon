@@ -10,13 +10,20 @@ public class BattleGround {
     private Pokemon pokemon;
 
     public BattleGround(Pokemon playerPokemon, Pokemon pokemon) {
-        Picture p = new Picture(Game.PADDING, Game.PADDING, "io/code4all/notpokemon/pictures/grassBackground.png");
+        Picture p = new Picture(Game.PADDING, Game.PADDING, "io/code4all/notpokemon/pictures/battleBackground.png");
         this.background = new Background(new Rectangle(Game.PADDING, Game.PADDING, Game.GAME_WIDTH, Game.GAME_HEIGHT), p);
-        this.playerPokemon = pokemon;
+        this.playerPokemon = playerPokemon;
         this.pokemon = pokemon;
     }
 
+
     public void start() {
-        System.out.println("HERE");
+        while(true)
+            System.out.println("HERE");
+    }
+
+    public void draw() {
+        playerPokemon.getPicture().draw();
+        pokemon.getPicture().draw();
     }
 }

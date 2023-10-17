@@ -15,8 +15,14 @@ public class Player {
     private Pokemon pokemon;
 
     private Level level;
+    private boolean move;
+
+    public void setMove(boolean move) {
+        this.move = move;
+    }
 
     public Player() {
+        move = true;
         this.picture = new Picture(10, 10, "io/code4all/notpokemon/pictures/player.png");
     }
 
@@ -33,10 +39,8 @@ public class Player {
             int y = picture.getY();
             // Checking for solids
             if (noSolids(x, y))
-                if (!checkForHighGrassBattle(x, y))
+                if (!checkForDangerZoneBattle(x, y))
                     picture.translate(SPEED, 0);
-                else
-                    level.startBattle();
         }
     }
 
@@ -46,10 +50,8 @@ public class Player {
             int x = picture.getX() - SPEED;
             int y = picture.getY();
             if (noSolids(x, y))
-                if (!checkForHighGrassBattle(x, y))
+                if (!checkForDangerZoneBattle(x, y))
                     picture.translate(-SPEED, 0);
-                else
-                    level.startBattle();
         }
     }
 
@@ -59,10 +61,8 @@ public class Player {
             int x = picture.getX();
             int y = picture.getY() - SPEED;
             if (noSolids(x, y))
-                if (!checkForHighGrassBattle(x, y))
+                if (!checkForDangerZoneBattle(x, y))
                     picture.translate(0, -SPEED);
-                else
-                    level.startBattle();
         }
 
 
@@ -74,18 +74,15 @@ public class Player {
             int x = picture.getX();
             int y = picture.getY() + SPEED;
             if (noSolids(x, y))
-                if (!checkForHighGrassBattle(x, y))
+                if (!checkForDangerZoneBattle(x, y))
                     picture.translate(0, SPEED);
-                else
-                    level.startBattle();
         }
     }
 
-    private boolean checkForHighGrassBattle(int x, int y) {
-        for (DangerZone d : level.getDangerZones()) {
-            if (checkPlayerPositionWithOtherObj(x, y, d))
-                return Math.random() * 10 > 8;
-        }
+    private boolean checkForDangerZoneBattle(int x, int y) {
+        for (DangerZone d : level.getDangerZones())
+            if (checkPlayerPositionWithOtherObj(x, y, d) && Math.random() * 10 > 8)
+                    level.startBattle(d);
         return false;
     }
 
@@ -114,5 +111,9 @@ public class Player {
 
     public Pokemon getPokemon() {
         return pokemon;
+    }
+
+    public boolean canMove() {
+        return move;
     }
 }

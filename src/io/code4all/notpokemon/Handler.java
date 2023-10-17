@@ -41,18 +41,20 @@ public class Handler implements KeyboardHandler {
     @Override
 
     public void keyPressed(KeyboardEvent keyboardEvent){
-        switch (keyboardEvent.getKey()){
-            case KeyboardEvent.KEY_D:
-                player.moveRight();
-                break;
-            case KeyboardEvent.KEY_A:
-                player.moveLeft();
-                break;
-            case KeyboardEvent.KEY_W:
-                player.moveUp();
-                break;
-            case KeyboardEvent.KEY_S:
-                player.moveDown();
+        if(player.canMove()) {
+            switch (keyboardEvent.getKey()) {
+                case KeyboardEvent.KEY_D:
+                    player.moveRight();
+                    break;
+                case KeyboardEvent.KEY_A:
+                    player.moveLeft();
+                    break;
+                case KeyboardEvent.KEY_W:
+                    player.moveUp();
+                    break;
+                case KeyboardEvent.KEY_S:
+                    player.moveDown();
+            }
         }
     }
 

@@ -10,16 +10,18 @@ public class Handler implements KeyboardHandler {
 
     private Player player;
 
+    private PopupMessage popupMessage;
     private Keyboard keyboard;
 
 
-    public Handler(Player player){
-        this.player= player;
+    public Handler(Player player, PopupMessage popupMessage) {
+        this.player = player;
+        this.popupMessage = popupMessage;
         keyboard = new Keyboard(this);
         createKeyboardEvents();
     }
 
-    public void createKeyboardEvents(){
+    public void createKeyboardEvents() {
         KeyboardEvent keyboardEventRight = new KeyboardEvent();
         keyboardEventRight.setKey(KeyboardEvent.KEY_D);
         keyboardEventRight.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
@@ -36,12 +38,16 @@ public class Handler implements KeyboardHandler {
         keyboardEventDown.setKey(KeyboardEvent.KEY_S);
         keyboardEventDown.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         keyboard.addEventListener(keyboardEventDown);
+        KeyboardEvent keyboardEventSpace = new KeyboardEvent();
+        keyboardEventSpace.setKey(KeyboardEvent.KEY_SPACE);
+        keyboardEventSpace.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        keyboard.addEventListener(keyboardEventSpace);
     }
 
     @Override
 
-    public void keyPressed(KeyboardEvent keyboardEvent){
-        if(player.canMove()) {
+    public void keyPressed(KeyboardEvent keyboardEvent) {
+        if (player.canMove()) {
             switch (keyboardEvent.getKey()) {
                 case KeyboardEvent.KEY_D:
                     player.moveRight();
@@ -55,11 +61,16 @@ public class Handler implements KeyboardHandler {
                 case KeyboardEvent.KEY_S:
                     player.moveDown();
             }
+        } else {
+            switch (keyboardEvent.getKey()) {
+                case KeyboardEvent.KEY_SPACE:
+                    popupMessage.disappear();
+                    break;
+            }
         }
     }
 
     @Override
-    public void keyReleased(KeyboardEvent keyboardEvent){
-
+    public void keyReleased(KeyboardEvent keyboardEvent) {
     }
 }

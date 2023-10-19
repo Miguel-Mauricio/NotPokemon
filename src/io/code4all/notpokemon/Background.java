@@ -12,12 +12,13 @@ public class Background {
 
   public Background(Rectangle field, Picture picture){
       this.field=field;
-      field.draw();
       this.picture = picture;
-      picture.draw();
   }
 
-
+public void draw(){
+      field.draw();
+      picture.draw();
+}
   public Rectangle getField(){
       return field;
   }

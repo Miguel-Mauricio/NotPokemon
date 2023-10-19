@@ -1,7 +1,7 @@
 package io.code4all.notpokemon.game_objects.pokemon;
 
+import io.code4all.notpokemon.Game;
 import io.code4all.notpokemon.game_objects.GameObject;
-import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 import java.util.LinkedList;
 
@@ -13,14 +13,20 @@ public abstract class Pokemon extends GameObject {
     private boolean dead;
     private int attackDamage;
     private int defence;
+    private boolean isGoingRight;
+    private boolean isGoingLeft;
 
-    public Pokemon(String name, int level, int health, int attackDamage, int defence) {
+    private String type;
+
+
+    public Pokemon(String name, int level, int health, int attackDamage, int defence, String type) {
         this.name = name;
         this.level = level;
         this.health = health;
         this.initialHealth = health;
         this.attackDamage = attackDamage;
         this.defence = defence;
+        this.type = type;
     }
 
     public static Pokemon getPokemon(int level, LinkedList<Pokemon> pokemons) {
@@ -37,6 +43,10 @@ public abstract class Pokemon extends GameObject {
            dead = true;
     }
 
+    public int getAttackDamage(){
+        return (int)(Math.random() * Game.DAMAGE_BOOST) + this.attackDamage;
+    }
+
     public boolean isDead(){
         return dead;
     }
@@ -49,8 +59,6 @@ public abstract class Pokemon extends GameObject {
         return "Pokemon{" +
                 "name=" + name +
                 "health=" + health +
-                ", dead=" + dead +
-                ", picture=" + picture +
                 ", attackDamage=" + attackDamage +
                 ", defence=" + defence +
                 '}';
@@ -60,4 +68,25 @@ public abstract class Pokemon extends GameObject {
         this.dead = false;
         health = initialHealth;
     }
+
+    public boolean isGoingRight() {
+        return this.isGoingRight;
+    }
+
+    public void setGoingRight(boolean b) {
+        this.isGoingRight = b;
+    }
+
+    public boolean isGoingLeft() {
+        return this.isGoingLeft;
+    }
+
+    public void setGoingLeft(boolean b) {
+        this.isGoingLeft = b;
+    }
+
+    public int getHealth() {
+        return this.health;
+    }
+
 }

@@ -4,7 +4,6 @@ import io.code4all.notpokemon.game_objects.DangerZone;
 import io.code4all.notpokemon.game_objects.GameObject;
 import io.code4all.notpokemon.game_objects.Solid;
 import io.code4all.notpokemon.game_objects.pokemon.Pokemon;
-import org.academiadecodigo.simplegraphics.graphics.Ellipse;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 
@@ -23,7 +22,7 @@ public class Player {
 
     public Player() {
         move = true;
-        this.picture = new Picture(10, 10, "io/code4all/notpokemon/pictures/player.png");
+        this.picture = new Picture(160, 140, "io/code4all/notpokemon/pictures/player.png");
     }
 
 
@@ -39,7 +38,6 @@ public class Player {
             int y = picture.getY();
             // Checking for solids
             if (noSolids(x, y))
-                if (!checkForDangerZoneBattle(x, y))
                     picture.translate(SPEED, 0);
         }
     }
@@ -50,7 +48,6 @@ public class Player {
             int x = picture.getX() - SPEED;
             int y = picture.getY();
             if (noSolids(x, y))
-                if (!checkForDangerZoneBattle(x, y))
                     picture.translate(-SPEED, 0);
         }
     }
@@ -61,7 +58,6 @@ public class Player {
             int x = picture.getX();
             int y = picture.getY() - SPEED;
             if (noSolids(x, y))
-                if (!checkForDangerZoneBattle(x, y))
                     picture.translate(0, -SPEED);
         }
 
@@ -74,7 +70,7 @@ public class Player {
             int x = picture.getX();
             int y = picture.getY() + SPEED;
             if (noSolids(x, y))
-                if (!checkForDangerZoneBattle(x, y))
+                //  if (!checkForDangerZoneBattle(x, y))
                     picture.translate(0, SPEED);
         }
     }
@@ -115,5 +111,11 @@ public class Player {
 
     public boolean canMove() {
         return move;
+    }
+
+    public void setPosition(int x, int y) {
+        this.picture.delete();
+        this.picture = new Picture(x, y, "io/code4all/notpokemon/pictures/player.png");
+        this.picture.draw();
     }
 }

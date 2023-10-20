@@ -1,10 +1,13 @@
 package io.code4all.notpokemon;
 
-import io.code4all.notpokemon.game_objects.pokemon.PlayerPoke;
 import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
+
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+import java.io.IOException;
 
 
 public class Handler implements KeyboardHandler {
@@ -13,11 +16,13 @@ public class Handler implements KeyboardHandler {
 
     private PopupMessage popupMessage;
     private Keyboard keyboard;
+    private Game game;
 
 
-    public Handler(Player player, PopupMessage popupMessage) {
+    public Handler(Player player, PopupMessage popupMessage, Game game) {
         this.player = player;
         this.popupMessage = popupMessage;
+        this.game = game;
         keyboard = new Keyboard(this);
         createKeyboardEvents();
     }
@@ -59,12 +64,16 @@ public class Handler implements KeyboardHandler {
         keyboardEventH.setKey(KeyboardEvent.KEY_H);
         keyboardEventH.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         keyboard.addEventListener(keyboardEventH);
+
     }
 
     @Override
 
     public void keyPressed(KeyboardEvent keyboardEvent) {
-        if (player.canMove()) {
+            if(game.isOnStartScreen() && keyboardEvent.getKey() == KeyboardEvent.KEY_SPACE) {
+                    game.setStartScreen(false);
+            }
+        else if (player.canMove()) {
             switch (keyboardEvent.getKey()) {
                 case KeyboardEvent.KEY_D:
                     player.moveRight();

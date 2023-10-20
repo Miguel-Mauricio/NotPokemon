@@ -5,7 +5,7 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.IOException;
 
 public class Main {
-    public static void main(String[] args) throws UnsupportedAudioFileException, LineUnavailableException, IOException {
+    public static void main(String[] args) throws UnsupportedAudioFileException, LineUnavailableException, IOException, InterruptedException {
         Game game = new Game();
         game.init();
         game.start();

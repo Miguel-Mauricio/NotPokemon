@@ -27,8 +27,11 @@ public void draw(){
         this.picture = picture;
     }
 
-    Picture getPicture(){
+    public Picture getPicture(){
          return picture;
     }
-
+public void delete(){
+      this.picture.delete();
+      this.field.delete();
+}
 }

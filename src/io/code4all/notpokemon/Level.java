@@ -60,7 +60,9 @@ public class Level {
                 for (DangerZone d : dangerZones)
                     if (player.checkPlayerPositionWithOtherObj(player.getPicture().getX(), player.getPicture().getY(), d)) {
                         // can do another number to arrange better position after exiting dangerzone
-                        player.setPosition(d.getPicture().getX() + d.getPicture().getWidth() / 2, d.getPicture().getMaxY() + 10);
+                        player.setPosition(d.getPicture().getMaxX() + 1, d.getPicture().getY() + d.getPicture().getHeight()/2);
+                        player.getPokemon().gainXP(20);
+                        player.getPokemon().reanimate();
                     }
 
 

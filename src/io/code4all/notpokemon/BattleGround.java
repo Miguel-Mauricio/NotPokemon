@@ -150,5 +150,6 @@ public class BattleGround {
         this.playerBoardText.delete();
         this.playerBoard.delete();
         this.heart1.delete();
+        this.typePic.delete();
     }
 }

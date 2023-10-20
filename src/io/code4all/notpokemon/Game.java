@@ -22,12 +22,15 @@ public class Game {
     private LinkedList<Pokemon> pokemons;
     private Background backgroundLevel1;
     private PopupMessage popupMessage;
+    private Background startGamePic;
     // TODO
     // We need to have 4 tiles in the future
     // for now lets work on one tile
     private Level level;
+    private boolean startScreen;
 
-    public void init(){
+    public void init() throws InterruptedException {
+        this.startGamePic = new Background(new Rectangle(PADDING, PADDING, GAME_WIDTH, GAME_HEIGHT), new Picture(PADDING, PADDING, "io/code4all/notpokemon/pictures/startGame.png"));
         this.backgroundLevel1 = new Background(new Rectangle(PADDING, PADDING, GAME_WIDTH, GAME_HEIGHT), new Picture(PADDING, PADDING, "io/code4all/notpokemon/pictures/grassBackground.png"));
         this.player = new Player();
         this.pokemons = new LinkedList<>();
@@ -37,16 +40,34 @@ public class Game {
         // Add new pokemons here
         pokemons.add(new ShitFly());
         pokemons.add(new BigEnemy());
-
-        new Handler(player, popupMessage);
+        new Handler(player, popupMessage, this);
+        startScreen = true;
+        startGamePic.draw();
+        while(startScreen) Thread.sleep(1000);
+        startGamePic.getPicture().delete();
+        startGamePic.getField().delete();
+        Thread.sleep(100);
+        System.out.println("HERE");
     }
 
-    public void start() throws UnsupportedAudioFileException, LineUnavailableException, IOException, UnsupportedAudioFileException, LineUnavailableException, IOException {
+    public void start() throws UnsupportedAudioFileException, LineUnavailableException, IOException, InterruptedException {
+        startScreen = false;
+        startGamePic.delete();
+
         backgroundLevel1.draw();
         this.level = new Level(player, pokemons, popupMessage);
         player.setLevel(level);
         player.getPicture().draw();
+        Thread.sleep(200);
         level.start();
         System.out.println("You Died!!");
+    }
+
+    public boolean isOnStartScreen() {
+        return startScreen;
+    }
+
+    public void setStartScreen(boolean b) {
+        startScreen = b;
     }
 }

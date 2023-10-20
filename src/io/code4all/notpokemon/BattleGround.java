@@ -81,13 +81,7 @@ public class BattleGround {
     public boolean isReady() {
         return this.isReady;
     }
-    public void fight(PopupMessage popupMessage) {/*
-        System.out.println("FIGHTING");
-        System.out.println("isReady = " + isReady);
-        System.out.println("Player turn = " + playerTurn);
-        System.out.println("Player pokemon = " + playerPokemon);
-        System.out.println("Pokemon = " + pokemon);
-        */
+    public void fight(PopupMessage popupMessage) {
         if(!popupMessage.showing()) {
             if (!playerTurn)
                 if (pokemon.isGoingRight())

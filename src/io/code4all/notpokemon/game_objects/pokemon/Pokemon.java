@@ -136,4 +136,8 @@ public abstract class Pokemon extends GameObject {
     public void gainXP(int i) {
         this.attackDamage += i;
     }
+
+    public int getLevel() {
+        return level;
+    }
 }

@@ -37,10 +37,21 @@ public class Level {
 
 
         dangerZones = new DangerZone[3];
-        dangerZones[0] = new HighGrass(60, 650, pokemons);
-        dangerZones[1] = new HighGrass(200, 600, pokemons);
-        dangerZones[2] = new HighGrass(600, 160, pokemons);
-       // dangerZones[3] = new HighGrass(55, 570, pokemons);
+
+        LinkedList<Pokemon> pokemonsLevel1 = new LinkedList<>();
+        LinkedList<Pokemon> pokemonsLevel2 = new LinkedList<>();
+        LinkedList<Pokemon> pokemonsLevel3 = new LinkedList<>();
+        for(Pokemon p : pokemons)
+            if(p.getLevel() == 1)
+                pokemonsLevel1.add(p);
+            else if(p.getLevel() == 2)
+                pokemonsLevel2.add(p);
+            else
+                pokemonsLevel3.add(p);
+
+        dangerZones[0] = new HighGrass(60, 650, pokemonsLevel1);
+        dangerZones[1] = new HighGrass(200, 600, pokemonsLevel2);
+        dangerZones[2] = new HighGrass(600, 160, pokemonsLevel3);
 
         battleGround = new BattleGround(player.getPokemon(), pokemons.get(0));
 

@@ -1,7 +1,6 @@
 package io.code4all.notpokemon;
 
 import io.code4all.notpokemon.game_objects.*;
-import io.code4all.notpokemon.game_objects.pokemon.BigEnemy;
 import io.code4all.notpokemon.game_objects.pokemon.Pokemon;
 import io.code4all.notpokemon.sound.BackgroundMusic;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
@@ -18,41 +17,46 @@ public class Level {
     private Solid[] solids;
     private DangerZone[] dangerZones;
     private Cosmetics[] cosmetics;
-    private BattleGround battleGround;
-    private GameObject elon;
-    private Pokemon bigEnemy;
+    BattleGround battleGround;
+    private LinkedList<Pokemon> pokemons;
 
     public Level(Player player, LinkedList<Pokemon> pokemons, PopupMessage popupMessage) throws UnsupportedAudioFileException, LineUnavailableException, IOException {
         this.player = player;
+        this.pokemons = pokemons;
         this.popupMessage = popupMessage;
-        elon = new Elon();
-        bigEnemy = new BigEnemy();
-        solids = new Solid[1];
-        solids[0] = new Tree(200, 50);
-       /* solids[1] = new Rock(300, 400);
-        solids[2] = new Tree(500, 300);
-        solids[3] = new Tree(400, 200);
-        solids[4] = new House(650, 200);
-        solids[5] = new House(600, 300);*/
-
-        cosmetics = new Cosmetics[2];
-        cosmetics[0] = new GrassCosmetics(55, 530);
+        solids = new Solid[8];
+        solids[0] = new Tree(200, 40);
+        solids[1] = new Tree(100, 40);
+        solids[2] = new Tree(50, 100);
+        solids[3] = new Tree(60, 200);
+        solids[4] = new Tree(110, 300);
+        solids[5] = new Tree(160, 430);
+        solids[6] = new Tree(600, 300);
+        solids[7] = new Tree(550, 150);
+        /*solids[5] = new Tree(600, 300);
+        /*solids[5] = new Tree(600, 300);*/
+        cosmetics = new Cosmetics[3];
+        cosmetics[0] = new GrassCosmetics(55,530);
+        cosmetics[1] = new WaterCosmetics(860,45);
+        cosmetics[2] = new LavaCosmetics(1050,350);
 
 
         dangerZones = new DangerZone[3];
+
         LinkedList<Pokemon> pokemonsLevel1 = new LinkedList<>();
         LinkedList<Pokemon> pokemonsLevel2 = new LinkedList<>();
         LinkedList<Pokemon> pokemonsLevel3 = new LinkedList<>();
-        for (Pokemon p : pokemons)
-            if (p.getLevel() == 1)
+        for(Pokemon p : pokemons)
+            if(p.getLevel() == 1)
                 pokemonsLevel1.add(p);
-            else if (p.getLevel() == 2)
+            else if(p.getLevel() == 2)
                 pokemonsLevel2.add(p);
             else
                 pokemonsLevel3.add(p);
+
         dangerZones[0] = new HighGrass(60, 650, pokemonsLevel1);
-        dangerZones[1] = new HighGrass(200, 600, pokemonsLevel1);
-        dangerZones[2] = new HighGrass(600, 160, pokemonsLevel1);
+        dangerZones[1] = new Water(860, 45, pokemonsLevel1);
+        dangerZones[2] = new Lava(1050, 350, pokemonsLevel1);
 
         battleGround = new BattleGround(player.getPokemon(), pokemons.get(0));
 
@@ -71,17 +75,18 @@ public class Level {
             if (battleGround.getPokemon().getHealth() <= 0) {
                 System.out.println("Resetting battleground");
                 battleGround.getPokemon().reanimate();
-                battleGround.cleanTables();
+                battleGround.getPokemon().getPicture().delete();
+                player.getPokemon().getPicture().delete();
+                battleGround.getBackground().getPicture().delete();
                 battleGround.setIsReady(false); // bad variable name :) sy guys
                 player.setMove(true);
-                // Moving player out of dangerzone
                 for (DangerZone d : dangerZones)
                     if (player.checkPlayerPositionWithOtherObj(player.getPicture().getX(), player.getPicture().getY(), d)) {
                         // can do another number to arrange better position after exiting dangerzone
                         player.setPosition(d.getPicture().getX() + d.getPicture().getWidth() / 2, d.getPicture().getMaxY() + 10);
                     }
-                player.getPokemon().reanimate();
-                player.getPokemon().gainXP(20);
+
+
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
@@ -92,12 +97,9 @@ public class Level {
                 if (!battleGround.isReady())
                     for (DangerZone d : dangerZones) {
                         System.out.println("checking for danger");
-                        if (player.checkPlayerPositionWithOtherObj(player.getPicture().getX(), player.getPicture().getY(), d) && Math.random() * 10 > 6) {
+                        if (player.checkPlayerPositionWithOtherObj(player.getPicture().getX(), player.getPicture().getY(), d) && Math.random() * 10 > 8) {
                             battleGround.setIsReady(true);
-                            startBattle(d.getPokemon());
-                        } else if (player.checkPlayerPositionWithOtherObj(player.getPicture().getMaxX(), player.getPicture().getMaxY(), elon)) {
-                            battleGround.setIsReady(true);
-                            startBattle(bigEnemy);
+                            startBattle(d);
                         }
                     }
                 else
@@ -106,10 +108,11 @@ public class Level {
         }
     }
 
-    public void startBattle(Pokemon p){
-        // play transition() TODO
+
+    public void startBattle(DangerZone dangerZone) {
+        // playTransition(); TODO
         player.setMove(false);
-        battleGround.setPokemon(p);
+        battleGround.setPokemon(dangerZone.getPokemon());
         battleGround.draw();
     }
 

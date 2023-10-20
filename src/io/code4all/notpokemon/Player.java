@@ -77,7 +77,7 @@ public class Player {
 
     private boolean checkForDangerZoneBattle(int x, int y) {
         for (DangerZone d : level.getDangerZones())
-            if (checkPlayerPositionWithOtherObj(x, y, d) && Math.random() * 10 > 8)
+            if (checkPlayerPositionWithOtherObj(x, y, d) && Math.random() * 10 >8 )
                     level.startBattle(d);
         return false;
     }

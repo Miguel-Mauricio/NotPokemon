@@ -16,23 +16,31 @@ public class Level {
     private Player player;
     private Solid[] solids;
     private DangerZone[] dangerZones;
+    private Cosmetics[] cosmetics;
     BattleGround battleGround;
+    private LinkedList<Pokemon> pokemons;
 
     public Level(Player player, LinkedList<Pokemon> pokemons, PopupMessage popupMessage) throws UnsupportedAudioFileException, LineUnavailableException, IOException {
         this.player = player;
+        this.pokemons = pokemons;
         this.popupMessage = popupMessage;
-        solids = new Solid[6];
+        solids = new Solid[1];
         solids[0] = new Rock(200, 50);
-        solids[1] = new Rock(300, 400);
+       /* solids[1] = new Rock(300, 400);
         solids[2] = new Tree(500, 300);
         solids[3] = new Tree(400, 200);
         solids[4] = new House(650, 200);
-        solids[5] = new House(600, 300);
+        solids[5] = new House(600, 300);*/
+
+        cosmetics = new Cosmetics[2];
+        cosmetics[0] = new GrassCosmetics(55,530);
+
 
         dangerZones = new DangerZone[3];
-        dangerZones[0] = new HighGrass(600, 50, pokemons);
-        dangerZones[1] = new HighGrass(600, 70, pokemons);
+        dangerZones[0] = new HighGrass(60, 650, pokemons);
+        dangerZones[1] = new HighGrass(200, 600, pokemons);
         dangerZones[2] = new HighGrass(600, 160, pokemons);
+       // dangerZones[3] = new HighGrass(55, 570, pokemons);
 
         battleGround = new BattleGround(player.getPokemon(), pokemons.get(0));
 
@@ -54,15 +62,12 @@ public class Level {
                 battleGround.getPokemon().getPicture().delete();
                 player.getPokemon().getPicture().delete();
                 battleGround.getBackground().getPicture().delete();
-                battleGround.cleanTables();
                 battleGround.setIsReady(false); // bad variable name :) sy guys
                 player.setMove(true);
                 for (DangerZone d : dangerZones)
                     if (player.checkPlayerPositionWithOtherObj(player.getPicture().getX(), player.getPicture().getY(), d)) {
                         // can do another number to arrange better position after exiting dangerzone
-                        player.setPosition(d.getPicture().getMaxX() + 1, d.getPicture().getY() + d.getPicture().getHeight()/2);
-                        player.getPokemon().gainXP(20);
-                        player.getPokemon().reanimate();
+                        player.setPosition(d.getPicture().getX() + d.getPicture().getWidth() / 2, d.getPicture().getMaxY() + 10);
                     }
 
 

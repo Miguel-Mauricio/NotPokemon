@@ -58,7 +58,8 @@ public abstract class Pokemon extends GameObject {
 
                 break;
         }
-        health -= damage - defence;
+        if(damage - defence > 0)
+            health -= damage - defence;
         if (health <= 0)
             dead = true;
     }
@@ -135,6 +136,9 @@ public abstract class Pokemon extends GameObject {
 
     public void gainXP(int i) {
         this.attackDamage += i;
+        this.defence += i;
+        this.health += i;
+        this.initialHealth += i;
     }
 
     public int getLevel() {

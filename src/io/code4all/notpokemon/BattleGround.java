@@ -39,8 +39,8 @@ public class BattleGround {
         this.heart2 = new Picture(920, Game.PADDING + 90, "io/code4all/notpokemon/pictures/heart.png");
         this.playerBoardText = new Text(heart1.getMaxX() + 50, heart1.getY() + 20, String.valueOf(playerPokemon.getHealth()));
         this.pokemonBoardText = new Text(heart2.getMaxX() + 50, heart2.getY() + 20, String.valueOf(pokemon.getHealth()));
-        this.playerBoardText.grow(40,40);
-        this.pokemonBoardText.grow(40,40);
+        this.playerBoardText.grow(40, 40);
+        this.pokemonBoardText.grow(40, 40);
 
 
     }
@@ -56,18 +56,19 @@ public class BattleGround {
         this.heart2.draw();
         this.playerBoardText.draw();
         this.pokemonBoardText.draw();
-        switch (pokemon.getType()){
+        switch (pokemon.getType()) {
             case "FIRE":
-                typePic = new Picture(pokemonBoard.getMaxX() - pokemonBoard.getWidth()/2, pokemonBoard.getMaxY(), "io/code4all/notpokemon/pictures/fireIcon.png");
+                typePic = new Picture(pokemonBoard.getMaxX() - pokemonBoard.getWidth() / 2, pokemonBoard.getMaxY(), "io/code4all/notpokemon/pictures/fireIcon.png");
                 break;
             case "GRASS":
-                typePic = new Picture(pokemonBoard.getMaxX()  - pokemonBoard.getWidth()/2, pokemonBoard.getMaxY(), "io/code4all/notpokemon/pictures/grassIcon.jpg");
+                typePic = new Picture(pokemonBoard.getMaxX() - pokemonBoard.getWidth() / 2, pokemonBoard.getMaxY(), "io/code4all/notpokemon/pictures/grassIcon.jpg");
                 break;
             case "WATER":
-                typePic = new Picture(pokemonBoard.getMaxX() - pokemonBoard.getWidth()/2, pokemonBoard.getMaxY(), "io/code4all/notpokemon/pictures/waterIcon.jpeg");
+                typePic = new Picture(pokemonBoard.getMaxX() - pokemonBoard.getWidth() / 2, pokemonBoard.getMaxY(), "io/code4all/notpokemon/pictures/waterIcon.jpeg");
                 break;
         }
-        this.typePic.draw();
+        if (typePic != null)
+            this.typePic.draw();
     }
 
     public void setPokemon(Pokemon pokemon) {
@@ -81,8 +82,9 @@ public class BattleGround {
     public boolean isReady() {
         return this.isReady;
     }
+
     public void fight(PopupMessage popupMessage) {
-        if(!popupMessage.showing()) {
+        if (!popupMessage.showing()) {
             if (!playerTurn)
                 if (pokemon.isGoingRight())
                     if (pokemonInitialX >= pokemon.getPicture().getX())
@@ -93,7 +95,7 @@ public class BattleGround {
                         playerTurn = true;
                     }
                 else if (pokemon.getPicture().getX() > playerPokemon.getPicture().getMaxX())
-                    pokemon.getPicture().translate(-SPEED*2, 0);
+                    pokemon.getPicture().translate(-SPEED * 2, 0);
                 else {
                     System.out.println("Pokemon is hiting");
                     // TODO
@@ -110,7 +112,7 @@ public class BattleGround {
                     playerTurn = false;
                 }
             else if (playerPokemon.getPicture().getMaxX() < pokemon.getPicture().getX())
-                playerPokemon.getPicture().translate(SPEED*2, 0);
+                playerPokemon.getPicture().translate(SPEED * 2, 0);
             else {
                 System.out.println("Player is hitting");
                 // TODO
@@ -145,5 +147,8 @@ public class BattleGround {
         this.playerBoard.delete();
         this.heart1.delete();
         this.typePic.delete();
+        this.playerPokemon.getPicture().delete();
+        this.pokemon.getPicture().delete();
+        this.background.delete();
     }
 }

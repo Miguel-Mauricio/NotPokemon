@@ -57,6 +57,7 @@ public class Game {
         backgroundLevel1.draw();
         this.level = new Level(player, pokemons, popupMessage);
         player.setLevel(level);
+        System.out.println("After se level");
         player.getPicture().draw();
         Thread.sleep(200);
         level.start();

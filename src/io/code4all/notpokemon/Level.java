@@ -25,7 +25,7 @@ public class Level {
         this.pokemons = pokemons;
         this.popupMessage = popupMessage;
         solids = new Solid[1];
-        solids[0] = new Rock(200, 50);
+        solids[0] = new Tree(200, 50);
        /* solids[1] = new Rock(300, 400);
         solids[2] = new Tree(500, 300);
         solids[3] = new Tree(400, 200);
@@ -48,10 +48,10 @@ public class Level {
                 pokemonsLevel2.add(p);
             else
                 pokemonsLevel3.add(p);
-
+        System.out.println("HERE");
         dangerZones[0] = new HighGrass(60, 650, pokemonsLevel1);
-        dangerZones[1] = new HighGrass(200, 600, pokemonsLevel2);
-        dangerZones[2] = new HighGrass(600, 160, pokemonsLevel3);
+        dangerZones[1] = new HighGrass(200, 600, pokemonsLevel1);
+        dangerZones[2] = new HighGrass(600, 160, pokemonsLevel1);
 
         battleGround = new BattleGround(player.getPokemon(), pokemons.get(0));
 

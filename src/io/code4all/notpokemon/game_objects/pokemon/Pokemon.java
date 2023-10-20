@@ -6,6 +6,7 @@ import io.code4all.notpokemon.game_objects.GameObject;
 import java.util.LinkedList;
 
 public abstract class Pokemon extends GameObject {
+    private static final int BOOST = 50;
     private String name;
     private int level;
     private int health;
@@ -18,6 +19,8 @@ public abstract class Pokemon extends GameObject {
 
     private String type;
 
+    private boolean specialAttack;
+    private String nextTypeOfAttack;
 
     public Pokemon(String name, int level, int health, int attackDamage, int defence, String type) {
         this.name = name;
@@ -31,29 +34,47 @@ public abstract class Pokemon extends GameObject {
 
     public static Pokemon getPokemon(int level, LinkedList<Pokemon> pokemons) {
         LinkedList<Pokemon> pokemonsToRandom = new LinkedList<>();
-        for(Pokemon p: pokemons)
+        for (Pokemon p : pokemons)
             if (p.level == level)
                 pokemonsToRandom.add(p);
-        return pokemonsToRandom.get((int) (Math.random()*(pokemonsToRandom.size()-1)));
+        return pokemonsToRandom.get((int) (Math.random() * (pokemonsToRandom.size() - 1)));
     }
 
-    public void hit(int damage){
-       health -= damage - defence;
-       if(health <= 0)
-           dead = true;
+    public void hit(int damage, String type) {
+        switch (type) {
+            case "FIRE":
+                if (this.type.equals("GRASS"))
+                    damage += BOOST;
+                break;
+            case "WATER":
+                if (this.type.equals("GRASS"))
+                    damage += BOOST;
+                break;
+            case "GRASS":
+                if (this.type.equals("WATER"))
+                    damage += BOOST;
+                break;
+            default:
+
+                break;
+        }
+        health -= damage - defence;
+        if (health <= 0)
+            dead = true;
     }
 
-    public int getAttackDamage(){
-        return (int)(Math.random() * Game.DAMAGE_BOOST) + this.attackDamage;
+    public int getAttackDamage() {
+        return (int) (Math.random() * Game.DAMAGE_BOOST) + this.attackDamage;
     }
 
-    public boolean isDead(){
+    public boolean isDead() {
         return dead;
     }
 
-    public String getMessage(){
+    public String getMessage() {
         return this.toString();
     }
+
     @Override
     public String toString() {
         return "Pokemon{" +
@@ -67,6 +88,8 @@ public abstract class Pokemon extends GameObject {
     public void reanimate() {
         this.dead = false;
         health = initialHealth;
+        this.setNextTypeOfAttack("normal");
+        this.setSpecial(true);
     }
 
     public boolean isGoingRight() {
@@ -89,4 +112,24 @@ public abstract class Pokemon extends GameObject {
         return this.health;
     }
 
+
+    public boolean hasSpecial(){
+        return specialAttack;
+    }
+
+    public void setSpecial(boolean b){
+        this.specialAttack = b;
+    }
+
+    public String nextTypeOfAttack() {
+        return this.nextTypeOfAttack;
+    }
+
+    public void setNextTypeOfAttack(String s){
+        this.nextTypeOfAttack = s;
+    }
+
+    public String getType() {
+        return this.type;
+    }
 }

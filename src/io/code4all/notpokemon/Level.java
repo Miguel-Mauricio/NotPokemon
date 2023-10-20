@@ -17,11 +17,9 @@ public class Level {
     private Solid[] solids;
     private DangerZone[] dangerZones;
     BattleGround battleGround;
-    private LinkedList<Pokemon> pokemons;
 
     public Level(Player player, LinkedList<Pokemon> pokemons, PopupMessage popupMessage) throws UnsupportedAudioFileException, LineUnavailableException, IOException {
         this.player = player;
-        this.pokemons = pokemons;
         this.popupMessage = popupMessage;
         solids = new Solid[6];
         solids[0] = new Rock(200, 50);
@@ -56,6 +54,7 @@ public class Level {
                 battleGround.getPokemon().getPicture().delete();
                 player.getPokemon().getPicture().delete();
                 battleGround.getBackground().getPicture().delete();
+                battleGround.cleanTables();
                 battleGround.setIsReady(false); // bad variable name :) sy guys
                 player.setMove(true);
                 for (DangerZone d : dangerZones)

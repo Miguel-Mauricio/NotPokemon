@@ -89,8 +89,9 @@ public abstract class Pokemon extends GameObject {
     public void reanimate() {
         this.dead = false;
         health = initialHealth;
-        this.setNextTypeOfAttack("normal");
         this.setSpecial(true);
+        this.setNextTypeOfAttack("normal");
+
     }
 
     public boolean isGoingRight() {

@@ -3,6 +3,7 @@ package io.code4all.notpokemon;
 import io.code4all.notpokemon.game_objects.*;
 import io.code4all.notpokemon.game_objects.pokemon.BigEnemy;
 import io.code4all.notpokemon.game_objects.pokemon.Pokemon;
+import io.code4all.notpokemon.game_objects.pokemon.WaterMonster;
 import io.code4all.notpokemon.sound.BackgroundMusic;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
@@ -21,6 +22,7 @@ public class Level {
     private Elon[] elonBoss;
     BattleGround battleGround;
     private Pokemon bigEnemy;
+    private Pokemon waterEnemy;
 
     public Level(Player player, LinkedList<Pokemon> pokemons, PopupMessage popupMessage) throws UnsupportedAudioFileException, LineUnavailableException, IOException {
         this.player = player;
@@ -50,6 +52,7 @@ public class Level {
         elonBoss = new Elon[1];
         elonBoss[0] = new Elon();
         bigEnemy = new BigEnemy();
+        waterEnemy = new WaterMonster();
 
         dangerZones = new DangerZone[4];
         dangerZones[0] = new HighGrass(75, 700, pokemons);

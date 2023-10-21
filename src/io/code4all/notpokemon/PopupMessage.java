@@ -7,14 +7,17 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class PopupMessage {
     private Text textBox;
-    private Picture board;
+    private Picture specialAttackBook;
+    private Picture normalAttackBook;
     private boolean showing;
 
     public PopupMessage(){
-        this.board = new Picture(Game.GAME_WIDTH/2 + Game.PADDING, Game.GAME_HEIGHT - Game.PADDING, "io/code4all/notpokemon/pictures/board.png");
-        this.board.translate(-board.getWidth()/2, -board.getHeight());
-        this.textBox = new Text(board.getX() + 50, board.getY() + 200, "BLA BLA BLA PRESS SPACE");
-        this.textBox.grow(10, 10);
+        this.specialAttackBook = new Picture(Game.GAME_WIDTH/2 + Game.PADDING, Game.GAME_HEIGHT - Game.PADDING, "io/code4all/notpokemon/pictures/specialAttacksBook.png");
+        this.specialAttackBook.translate(-specialAttackBook.getWidth()/2, -specialAttackBook.getHeight());
+        this. normalAttackBook= new Picture(Game.GAME_WIDTH/2 + Game.PADDING, Game.GAME_HEIGHT - Game.PADDING, "io/code4all/notpokemon/pictures/normalAttacksBook.png");
+        this.normalAttackBook.translate(-normalAttackBook.getWidth()/2, -normalAttackBook.getHeight());
+        //this.textBox = new Text(board.getX() + 50, board.getY() + 200, "BLA BLA BLA PRESS SPACE");
+        //this.textBox.grow(10, 10);
     }
     public Text getTextBox() {
         return textBox;
@@ -26,14 +29,15 @@ public class PopupMessage {
 
     public void disappear() {
         showing = false;
-        this.board.delete();
+        this.specialAttackBook.delete();
+        this.normalAttackBook.delete();
         this.textBox.delete();
     }
 
     public void show(){
         showing = true;
-        this.board.draw();
-        this.textBox.draw();
+        //this.board.draw();
+//        this.textBox.draw();
     }
 
     public boolean showing() {
@@ -42,9 +46,9 @@ public class PopupMessage {
 
     public void showBattleMessage(Pokemon playerPokemon) {
         if(playerPokemon.hasSpecial())
-            this.textBox.setText("    Select F for Fire attack, G for Grass attack, H for Water attack or SPACE for normal attack");
+            this.specialAttackBook.draw();
         else
-            this.textBox.setText(("                                 Press SPACE Bar for normal attack"));
+            this.normalAttackBook.draw();
         show();
     }
 }

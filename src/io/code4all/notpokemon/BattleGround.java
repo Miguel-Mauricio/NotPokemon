@@ -46,7 +46,7 @@ public class BattleGround {
     }
 
 
-    public void draw() {
+    public void draw()  {
         this.background.draw();
         playerPokemon.getPicture().draw();
         pokemon.getPicture().draw();
@@ -71,6 +71,11 @@ public class BattleGround {
         }
         if (typePic != null)
             this.typePic.draw();
+        try {
+            Thread.sleep(10);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void setPokemon(Pokemon pokemon) {
@@ -124,12 +129,15 @@ public class BattleGround {
                 System.out.println("Pokemon health = " + pokemon.getHealth());
             }
         }
-        playerBoardText.setText(String.valueOf(playerPokemon.getHealth()));
-        pokemonBoardText.setText(String.valueOf(pokemon.getHealth()));
+
         try {
-            Thread.sleep(20);
+            Thread.sleep(5);
+            playerBoardText.setText(String.valueOf(playerPokemon.getHealth()));
+            Thread.sleep(5);
+            pokemonBoardText.setText(String.valueOf(pokemon.getHealth()));
+            Thread.sleep(5);
         } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+            System.out.println("Ups: " + e);;
         }
     }
 

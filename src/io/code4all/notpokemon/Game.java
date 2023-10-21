@@ -39,10 +39,16 @@ public class Game {
         pokemons.add(new BigEnemy());
         pokemons.add(new WaterMonster());
         pokemons.add(new LavaMonster());
+        pokemons.add(new BadBallEnemy());
+        pokemons.add(new CrazyEnemy());
+        pokemons.add(new TallEnemy());
+        pokemons.add(new ShitFly());
+        pokemons.add(new IceCreamEnemy());
+        pokemons.add(new RedEnemy());
         new Handler(player, popupMessage, this);
         startScreen = true;
         startGamePic.draw();
-        while(startScreen) Thread.sleep(1000);
+        while (startScreen) Thread.sleep(1000);
         startGamePic.getPicture().delete();
         startGamePic.getField().delete();
         Thread.sleep(100);

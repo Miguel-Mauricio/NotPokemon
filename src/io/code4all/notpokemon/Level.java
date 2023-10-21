@@ -1,13 +1,12 @@
 package io.code4all.notpokemon;
 
 import io.code4all.notpokemon.game_objects.*;
-import io.code4all.notpokemon.game_objects.pokemon.BigEnemy;
-import io.code4all.notpokemon.game_objects.pokemon.Pokemon;
-import io.code4all.notpokemon.game_objects.pokemon.WaterMonster;
 import io.code4all.notpokemon.game_objects.cosmetics.Cosmetics;
 import io.code4all.notpokemon.game_objects.cosmetics.GrassCosmetics;
 import io.code4all.notpokemon.game_objects.cosmetics.LavaCosmetics;
 import io.code4all.notpokemon.game_objects.cosmetics.WaterCosmetics;
+import io.code4all.notpokemon.game_objects.pokemon.BigEnemy;
+import io.code4all.notpokemon.game_objects.pokemon.Pokemon;
 import io.code4all.notpokemon.sound.BackgroundMusic;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
@@ -26,11 +25,12 @@ public class Level {
     private Elon[] elonBoss;
     BattleGround battleGround;
     private Pokemon bigEnemy;
-    private Pokemon waterEnemy;
+    private LinkedList<Pokemon> pokemons;
 
     public Level(Player player, LinkedList<Pokemon> pokemons, PopupMessage popupMessage) throws UnsupportedAudioFileException, LineUnavailableException, IOException {
         this.player = player;
         this.popupMessage = popupMessage;
+        this.pokemons = pokemons;
         solids = new Solid[15];
         solids[0] = new Tree(200, 40);
         solids[1] = new Tree(100, 40);
@@ -56,7 +56,6 @@ public class Level {
         elonBoss = new Elon[1];
         elonBoss[0] = new Elon();
         bigEnemy = new BigEnemy();
-        waterEnemy = new WaterMonster();
 
         dangerZones = new DangerZone[4];
         dangerZones[0] = new HighGrass(75, 700, pokemons);
@@ -106,16 +105,16 @@ public class Level {
             }
             while (!player.getPokemon().isDead() && !battleGround.getPokemon().isDead()) {
                 if (player.checkPlayerPositionWithOtherObj(player.getPicture().getMaxX(), player.getPicture().getMaxY(), elonBoss[0])) {
-                    System.out.println("HERE");
                     battleGround.setIsReady(true);
                     startBattle(bigEnemy);
                 }
                 if (!battleGround.isReady())
                     for (DangerZone d : dangerZones) {
-                        System.out.println("checking for danger");
+                        System.out.println("checking");
                         if (player.checkPlayerPositionWithOtherObj(player.getPicture().getX(), player.getPicture().getY(), d) && Math.random() * 10 > 8) {
                             battleGround.setIsReady(true);
                             startBattle(d.getPokemon());
+                            d.setNewPokemon(d.getPokemon().getLevel(), pokemons);
                         }
                     }
                 else

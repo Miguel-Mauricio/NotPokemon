@@ -47,7 +47,7 @@ public abstract class Pokemon extends GameObject {
                     damage += BOOST;
                 break;
             case "WATER":
-                if (this.type.equals("GRASS"))
+                if (this.type.equals("FIRE"))
                     damage += BOOST;
                 break;
             case "GRASS":

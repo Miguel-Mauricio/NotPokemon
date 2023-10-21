@@ -8,7 +8,7 @@ import org.academiadecodigo.simplegraphics.graphics.Text;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class BattleGround {
-    private final int SPEED = 4;
+    private final int SPEED = 10;
     private Background background;
     private Picture playerBoard;
     private Picture pokemonBoard;
@@ -66,6 +66,8 @@ public class BattleGround {
             case "WATER":
                 typePic = new Picture(pokemonBoard.getMaxX() - pokemonBoard.getWidth() / 2, pokemonBoard.getMaxY(), "io/code4all/notpokemon/pictures/waterIcon.png");
                 break;
+            default:
+                typePic = new Picture(pokemonBoard.getMaxX() - pokemonBoard.getWidth() / 2, pokemonBoard.getMaxY(), "io/code4all/notpokemon/pictures/invisWall.png");
         }
         if (typePic != null)
             this.typePic.draw();
@@ -125,7 +127,7 @@ public class BattleGround {
         playerBoardText.setText(String.valueOf(playerPokemon.getHealth()));
         pokemonBoardText.setText(String.valueOf(pokemon.getHealth()));
         try {
-            Thread.sleep(10);
+            Thread.sleep(20);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

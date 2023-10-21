@@ -6,7 +6,7 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 public class WaterMonster extends Pokemon{
 
     public WaterMonster() {
-        super("Duck", 1, 100, 10, 10, "WATER");
+        super("Duck", 2, 100, 10, 10, "WATER");
         Picture p = new Picture(0,0, "io/code4all/notpokemon/pictures/waterMonster.png");
         p.translate(Game.GAME_WIDTH - p.getWidth() - Game.PADDING, Game.GAME_HEIGHT/2 + 100 - p.getHeight()/2);
         picture = p;

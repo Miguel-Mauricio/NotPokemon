@@ -27,7 +27,7 @@ public class Game {
     private boolean startScreen;
 
     public void init() throws InterruptedException {
-        this.startGamePic = new Background(new Rectangle(PADDING, PADDING, GAME_WIDTH, GAME_HEIGHT), new Picture(PADDING, PADDING, "io/code4all/notpokemon/pictures/startGame.png"));
+        this.startGamePic = new Background(new Rectangle(PADDING, PADDING, GAME_WIDTH, GAME_HEIGHT), new Picture(PADDING, PADDING, "io/code4all/notpokemon/pictures/mainMenuFinal.png"));
         this.backgroundLevel1 = new Background(new Rectangle(PADDING, PADDING, GAME_WIDTH, GAME_HEIGHT), new Picture(PADDING, PADDING, "io/code4all/notpokemon/pictures/grassBackground.png"));
         this.player = new Player();
         this.pokemons = new LinkedList<>();
@@ -37,6 +37,7 @@ public class Game {
         // Add new pokemons here
         pokemons.add(new ShitFly());
         pokemons.add(new BigEnemy());
+        pokemons.add(new WaterMonster());
         new Handler(player, popupMessage, this);
         startScreen = true;
         startGamePic.draw();

@@ -1,10 +1,7 @@
 package io.code4all.notpokemon;
 
 import io.code4all.notpokemon.game_objects.*;
-import io.code4all.notpokemon.game_objects.cosmetics.Cosmetics;
-import io.code4all.notpokemon.game_objects.cosmetics.GrassCosmetics;
-import io.code4all.notpokemon.game_objects.cosmetics.LavaCosmetics;
-import io.code4all.notpokemon.game_objects.cosmetics.WaterCosmetics;
+import io.code4all.notpokemon.game_objects.cosmetics.*;
 import io.code4all.notpokemon.game_objects.pokemon.BigEnemy;
 import io.code4all.notpokemon.game_objects.pokemon.Pokemon;
 import io.code4all.notpokemon.sound.BackgroundMusic;
@@ -31,7 +28,24 @@ public class Level {
         this.player = player;
         this.popupMessage = popupMessage;
         this.pokemons = pokemons;
-        solids = new Solid[15];
+
+        cosmetics = new Cosmetics[14];
+        cosmetics[0] = new GrassCosmetics(55, 530);
+        cosmetics[1] = new WaterCosmetics(860, 45);
+        cosmetics[2] = new LavaCosmetics(1050, 350);
+        cosmetics[3] = new Flowers(Game.PADDING + 300, Game.PADDING + 450);
+        cosmetics[4] = new Flowers(Game.PADDING, Game.GAME_HEIGHT - Game.PADDING - 250);
+        cosmetics[5] = new Flowers(Game.PADDING, 630);
+        cosmetics[6] = new Flowers(Game.PADDING, 680);
+        cosmetics[7] = new Flowers(800, Game.PADDING);
+        cosmetics[8] = new Flowers(900, Game.PADDING);
+        cosmetics[9] = new Flowers(1000, Game.PADDING);
+        cosmetics[10] = new Flowers(1050, 50);
+        cosmetics[11] = new Flowers(1050, 100);
+        cosmetics[12] = new Flowers(1050, 150);
+        cosmetics[13] = new Flowers(1050, 200);
+
+        solids = new Solid[16];
         solids[0] = new Tree(200, 40);
         solids[1] = new Tree(100, 40);
         solids[2] = new Tree(50, 100);
@@ -47,11 +61,7 @@ public class Level {
         solids[12] = new Tree(500, 630);
         solids[13] = new Tree(700, 700);
         solids[14] = new Tree(1050, 650);
-
-        cosmetics = new Cosmetics[3];
-        cosmetics[0] = new GrassCosmetics(55, 530);
-        cosmetics[1] = new WaterCosmetics(860, 45);
-        cosmetics[2] = new LavaCosmetics(1050, 350);
+        solids[15] = new Dog(100, 150);
 
         elonBoss = new Elon[1];
         elonBoss[0] = new Elon();
@@ -59,7 +69,7 @@ public class Level {
 
         dangerZones = new DangerZone[4];
         dangerZones[0] = new HighGrass(75, 700, pokemons);
-        dangerZones[1] = new HighGrass(240,660, pokemons);
+        dangerZones[1] = new HighGrass(240, 660, pokemons);
         dangerZones[2] = new Water(860, 45, pokemons);
         dangerZones[3] = new Lava(1050, 350, pokemons);
 
@@ -71,7 +81,7 @@ public class Level {
     public void start() {
         while (true) {
             System.out.println(player.getPokemon());
-            if(bigEnemy.getHealth() <= 0){
+            if (bigEnemy.getHealth() <= 0) {
                 Background gameOverWin = new Background(new Rectangle(Game.PADDING, Game.PADDING, Game.GAME_WIDTH, Game.GAME_HEIGHT), new Picture(Game.PADDING, Game.PADDING, "io/code4all/notpokemon/pictures/gameOverWin.png"));
                 gameOverWin.draw();
                 return;
@@ -93,7 +103,7 @@ public class Level {
                 for (DangerZone d : dangerZones)
                     if (player.checkPlayerPositionWithOtherObj(player.getPicture().getX(), player.getPicture().getY(), d)) {
                         // can do another number to arrange better position after exiting dangerzone
-                        player.setPosition(d.getPicture().getMaxX() + 20, d.getPicture().getY() + d.getPicture().getHeight()/2);
+                        player.setPosition(d.getPicture().getMaxX() + 20, d.getPicture().getY() + d.getPicture().getHeight() / 2);
                     }
 
 

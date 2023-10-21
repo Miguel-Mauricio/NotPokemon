@@ -1,4 +1,4 @@
-package io.code4all.notpokemon.game_objects.pokemon.cosmetics;
+package io.code4all.notpokemon.game_objects.cosmetics;
 
 import io.code4all.notpokemon.game_objects.GameObject;
 

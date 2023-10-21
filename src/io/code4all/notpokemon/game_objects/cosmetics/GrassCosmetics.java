@@ -1,6 +1,4 @@
-package io.code4all.notpokemon.game_objects.pokemon.cosmetics;
-
-import io.code4all.notpokemon.game_objects.pokemon.cosmetics.Cosmetics;
+package io.code4all.notpokemon.game_objects.cosmetics;
 
 public class GrassCosmetics extends Cosmetics {
     public GrassCosmetics(int x, int y){

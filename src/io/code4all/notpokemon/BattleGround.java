@@ -61,10 +61,10 @@ public class BattleGround {
                 typePic = new Picture(pokemonBoard.getMaxX() - pokemonBoard.getWidth() / 2, pokemonBoard.getMaxY(), "io/code4all/notpokemon/pictures/fireIcon.png");
                 break;
             case "GRASS":
-                typePic = new Picture(pokemonBoard.getMaxX() - pokemonBoard.getWidth() / 2, pokemonBoard.getMaxY(), "io/code4all/notpokemon/pictures/grassIcon.jpg");
+                typePic = new Picture(pokemonBoard.getMaxX() - pokemonBoard.getWidth() / 2, pokemonBoard.getMaxY(), "io/code4all/notpokemon/pictures/grassIcon.png");
                 break;
             case "WATER":
-                typePic = new Picture(pokemonBoard.getMaxX() - pokemonBoard.getWidth() / 2, pokemonBoard.getMaxY(), "io/code4all/notpokemon/pictures/waterIcon.jpeg");
+                typePic = new Picture(pokemonBoard.getMaxX() - pokemonBoard.getWidth() / 2, pokemonBoard.getMaxY(), "io/code4all/notpokemon/pictures/waterIcon.png");
                 break;
         }
         if (typePic != null)

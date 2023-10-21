@@ -6,7 +6,7 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 public class Elon extends GameObject {
 
     public Elon() {
-        picture = new Picture(Game.GAME_WIDTH - 200, Game.GAME_HEIGHT - 150, "io/code4all/notpokemon/pictures/elon.png");
+        picture = new Picture(Game.GAME_WIDTH - 200, Game.GAME_HEIGHT - 100, "io/code4all/notpokemon/pictures/elonFace.png");
         picture.draw();
     }
 

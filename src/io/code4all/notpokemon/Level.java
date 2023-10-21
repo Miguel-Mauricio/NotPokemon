@@ -17,14 +17,16 @@ public class Level {
     private Solid[] solids;
     private DangerZone[] dangerZones;
     private Cosmetics[] cosmetics;
+    private Elon[] elonBoss;
     BattleGround battleGround;
+
     private LinkedList<Pokemon> pokemons;
 
     public Level(Player player, LinkedList<Pokemon> pokemons, PopupMessage popupMessage) throws UnsupportedAudioFileException, LineUnavailableException, IOException {
         this.player = player;
         this.pokemons = pokemons;
         this.popupMessage = popupMessage;
-        solids = new Solid[8];
+        solids = new Solid[15];
         solids[0] = new Tree(200, 40);
         solids[1] = new Tree(100, 40);
         solids[2] = new Tree(50, 100);
@@ -33,15 +35,21 @@ public class Level {
         solids[5] = new Tree(160, 430);
         solids[6] = new Tree(600, 300);
         solids[7] = new Tree(550, 150);
-        /*solids[5] = new Tree(600, 300);
-        /*solids[5] = new Tree(600, 300);*/
+        solids[8] = new Tree(340, 120);
+        solids[9] = new Tree(400, 370);
+        solids[10] = new Tree(750, 470);
+        solids[11] = new Tree(800, 370);
+        solids[12] = new Tree(500, 630);
+        solids[13] = new Tree(700, 700);
+        solids[14] = new Tree(1050, 650);
+
         cosmetics = new Cosmetics[3];
         cosmetics[0] = new GrassCosmetics(55,530);
         cosmetics[1] = new WaterCosmetics(860,45);
         cosmetics[2] = new LavaCosmetics(1050,350);
 
-
-        dangerZones = new DangerZone[3];
+        elonBoss = new Elon[1];
+        elonBoss[0] = new Elon();
 
         LinkedList<Pokemon> pokemonsLevel1 = new LinkedList<>();
         LinkedList<Pokemon> pokemonsLevel2 = new LinkedList<>();
@@ -54,6 +62,7 @@ public class Level {
             else
                 pokemonsLevel3.add(p);
 
+        dangerZones = new DangerZone[3];
         dangerZones[0] = new HighGrass(60, 650, pokemonsLevel1);
         dangerZones[1] = new Water(860, 45, pokemonsLevel1);
         dangerZones[2] = new Lava(1050, 350, pokemonsLevel1);

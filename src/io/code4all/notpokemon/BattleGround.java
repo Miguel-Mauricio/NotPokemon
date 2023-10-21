@@ -27,7 +27,7 @@ public class BattleGround {
     private Picture typePic;
 
     public BattleGround(Pokemon playerPokemon, Pokemon pokemon) {
-        Picture p = new Picture(Game.PADDING, Game.PADDING, "io/code4all/notpokemon/pictures/battleBackground.png");
+        Picture p = new Picture(Game.PADDING, Game.PADDING, "io/code4all/notpokemon/pictures/battleBackground.jpg");
         this.background = new Background(new Rectangle(Game.PADDING, Game.PADDING, Game.GAME_WIDTH, Game.GAME_HEIGHT), p);
         this.playerPokemon = playerPokemon;
         this.pokemon = pokemon;

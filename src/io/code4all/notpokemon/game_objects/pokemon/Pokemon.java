@@ -6,7 +6,7 @@ import io.code4all.notpokemon.game_objects.GameObject;
 import java.util.LinkedList;
 
 public abstract class Pokemon extends GameObject {
-    private static final int BOOST = 50;
+    private static final int BOOST = 25;
     private String name;
     private int level;
     private int health;

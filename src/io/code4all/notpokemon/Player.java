@@ -9,7 +9,7 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Player {
 
-    private static final int SPEED = 15;
+    private static final int SPEED = 30;
     private Picture picture;
     private Pokemon pokemon;
 

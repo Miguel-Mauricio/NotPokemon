@@ -80,7 +80,7 @@ public class Level {
                 System.out.println("GAME OVER BABY!!!");
                 Background gameOver = new Background(new Rectangle(Game.PADDING, Game.PADDING, Game.GAME_WIDTH, Game.GAME_HEIGHT), new Picture(Game.PADDING, Game.PADDING, "io/code4all/notpokemon/pictures/gameOver.png"));
                 gameOver.draw();
-                return;
+                return  ;
             }
             if (battleGround.getPokemon().getHealth() <= 0) {
                 System.out.println("Resetting battleground");

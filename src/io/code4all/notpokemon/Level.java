@@ -84,9 +84,8 @@ public class Level {
             if (battleGround.getPokemon().getHealth() <= 0) {
                 System.out.println("Resetting battleground");
                 battleGround.getPokemon().reanimate();
-                battleGround.getPokemon().getPicture().delete();
-                player.getPokemon().getPicture().delete();
-                battleGround.getBackground().getPicture().delete();
+                player.getPokemon().reanimate();
+                battleGround.cleanTables();
                 battleGround.setIsReady(false); // bad variable name :) sy guys
                 player.setMove(true);
                 for (DangerZone d : dangerZones)

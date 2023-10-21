@@ -35,7 +35,7 @@ public class Game {
         // Adding player pokemon
         player.setPokemon(new PlayerPoke());
         // Add new pokemons here
-        pokemons.add(new ShitFly());
+        pokemons.add(new GrassMonster());
         pokemons.add(new BigEnemy());
         pokemons.add(new WaterMonster());
         pokemons.add(new LavaMonster());

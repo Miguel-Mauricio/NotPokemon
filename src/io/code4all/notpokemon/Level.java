@@ -69,7 +69,7 @@ public class Level {
         while (true) {
             System.out.println(player.getPokemon());
             if(bigEnemy.getHealth() <= 0){
-                Background gameOverWin = new Background(new Rectangle(Game.PADDING, Game.PADDING, Game.GAME_WIDTH, Game.GAME_HEIGHT), new Picture(Game.PADDING, Game.PADDING, "io/code4all/notpokemon/pictures/gameOverWin.jpg"));
+                Background gameOverWin = new Background(new Rectangle(Game.PADDING, Game.PADDING, Game.GAME_WIDTH, Game.GAME_HEIGHT), new Picture(Game.PADDING, Game.PADDING, "io/code4all/notpokemon/pictures/gameOverWin.png"));
                 gameOverWin.draw();
                 return;
             }

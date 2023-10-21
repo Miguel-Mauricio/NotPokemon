@@ -1,6 +1,6 @@
-package io.code4all.notpokemon.game_objects;
+package io.code4all.notpokemon.game_objects.pokemon.cosmetics;
 
-import io.code4all.notpokemon.game_objects.Cosmetics;
+import io.code4all.notpokemon.game_objects.pokemon.cosmetics.Cosmetics;
 
 public class WaterCosmetics extends Cosmetics {
     public WaterCosmetics(int x, int y){

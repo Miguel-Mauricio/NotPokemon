@@ -4,6 +4,10 @@ import io.code4all.notpokemon.game_objects.*;
 import io.code4all.notpokemon.game_objects.pokemon.BigEnemy;
 import io.code4all.notpokemon.game_objects.pokemon.Pokemon;
 import io.code4all.notpokemon.game_objects.pokemon.WaterMonster;
+import io.code4all.notpokemon.game_objects.pokemon.cosmetics.Cosmetics;
+import io.code4all.notpokemon.game_objects.pokemon.cosmetics.GrassCosmetics;
+import io.code4all.notpokemon.game_objects.pokemon.cosmetics.LavaCosmetics;
+import io.code4all.notpokemon.game_objects.pokemon.cosmetics.WaterCosmetics;
 import io.code4all.notpokemon.sound.BackgroundMusic;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
@@ -86,7 +90,7 @@ public class Level {
                 battleGround.cleanTables();
                 battleGround.setIsReady(false); // bad variable name :) sy guys
                 player.setMove(true);
-                player.getPokemon().gainXP(5);
+                player.getPokemon().gainXP(3);
                 for (DangerZone d : dangerZones)
                     if (player.checkPlayerPositionWithOtherObj(player.getPicture().getX(), player.getPicture().getY(), d)) {
                         // can do another number to arrange better position after exiting dangerzone

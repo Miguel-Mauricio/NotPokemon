@@ -1,5 +1,5 @@
-package io.code4all.notpokemon.game_objects;
-import io.code4all.notpokemon.game_objects.Cosmetics;
+package io.code4all.notpokemon.game_objects.pokemon.cosmetics;
+import io.code4all.notpokemon.game_objects.pokemon.cosmetics.Cosmetics;
 public class LavaCosmetics extends Cosmetics{
     public LavaCosmetics(int x, int y){
         setPicture(x, y, "io/code4all/notpokemon/pictures/dangerLava.png");

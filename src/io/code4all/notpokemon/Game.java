@@ -1,9 +1,6 @@
 package io.code4all.notpokemon;
 
-import io.code4all.notpokemon.game_objects.pokemon.BigEnemy;
-import io.code4all.notpokemon.game_objects.pokemon.PlayerPoke;
-import io.code4all.notpokemon.game_objects.pokemon.Pokemon;
-import io.code4all.notpokemon.game_objects.pokemon.ShitFly;
+import io.code4all.notpokemon.game_objects.pokemon.*;
 import io.code4all.notpokemon.sound.BackgroundMusic;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.simplegraphics.pictures.Picture;

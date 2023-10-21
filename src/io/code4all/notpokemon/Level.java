@@ -62,10 +62,11 @@ public class Level {
             else
                 pokemonsLevel3.add(p);
 
-        dangerZones = new DangerZone[3];
-        dangerZones[0] = new HighGrass(60, 650, pokemonsLevel1);
-        dangerZones[1] = new Water(860, 45, pokemonsLevel1);
-        dangerZones[2] = new Lava(1050, 350, pokemonsLevel1);
+        dangerZones = new DangerZone[4];
+        dangerZones[0] = new HighGrass(75, 700, pokemonsLevel1);
+        dangerZones[1] = new HighGrass(240,660, pokemonsLevel1);
+        dangerZones[2] = new Water(860, 45, pokemonsLevel1);
+        dangerZones[3] = new Lava(1050, 350, pokemonsLevel1);
 
         battleGround = new BattleGround(player.getPokemon(), pokemons.get(0));
 

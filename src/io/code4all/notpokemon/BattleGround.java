@@ -132,9 +132,13 @@ public class BattleGround {
 
         try {
             Thread.sleep(5);
+            playerBoardText.delete();
             playerBoardText.setText(String.valueOf(playerPokemon.getHealth()));
+            playerBoardText.draw();
             Thread.sleep(5);
+            pokemonBoardText.delete();
             pokemonBoardText.setText(String.valueOf(pokemon.getHealth()));
+            pokemonBoardText.draw();
             Thread.sleep(5);
         } catch (InterruptedException e) {
             System.out.println("Ups: " + e);;

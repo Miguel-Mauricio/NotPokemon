@@ -52,7 +52,6 @@ public class Game {
         startGamePic.getPicture().delete();
         startGamePic.getField().delete();
         Thread.sleep(100);
-        System.out.println("HERE");
     }
 
     public void start() throws UnsupportedAudioFileException, LineUnavailableException, IOException, InterruptedException {
@@ -62,7 +61,6 @@ public class Game {
         backgroundLevel1.draw();
         this.level = new Level(player, pokemons, popupMessage);
         player.setLevel(level);
-        System.out.println("After se level");
         player.getPicture().draw();
         Thread.sleep(200);
         level.start();

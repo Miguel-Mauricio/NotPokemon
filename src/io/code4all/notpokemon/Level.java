@@ -61,7 +61,7 @@ public class Level {
         solids[12] = new Tree(500, 630);
         solids[13] = new Tree(700, 700);
         solids[14] = new Tree(1050, 650);
-        solids[15] = new Dog(100, 150);
+        solids[15] = new Dog(90, 150);
 
         elonBoss = new Elon[1];
         elonBoss[0] = new Elon();

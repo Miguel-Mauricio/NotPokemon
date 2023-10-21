@@ -97,7 +97,7 @@ public class BattleGround {
                 else if (pokemon.getPicture().getX() > playerPokemon.getPicture().getMaxX())
                     pokemon.getPicture().translate(-SPEED * 2, 0);
                 else {
-                    System.out.println("Pokemon is hiting");
+                    System.out.println("Pokemon is hitting");
                     // TODO
                     playerPokemon.hit(pokemon.getAttackDamage(), "normal");
                     pokemon.setGoingRight(true);

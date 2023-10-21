@@ -37,7 +37,7 @@ public abstract class Pokemon extends GameObject {
         for (Pokemon p : pokemons)
             if (p.level == level)
                 pokemonsToRandom.add(p);
-        return pokemonsToRandom.get((int) (Math.random() * (pokemonsToRandom.size() - 1)));
+        return pokemonsToRandom.get((int) (Math.random() * (pokemonsToRandom.size() -1)));
     }
 
     public void hit(int damage, String type) {

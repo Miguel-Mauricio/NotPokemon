@@ -38,6 +38,7 @@ public class Game {
         pokemons.add(new ShitFly());
         pokemons.add(new BigEnemy());
         pokemons.add(new WaterMonster());
+        pokemons.add(new LavaMonster());
         new Handler(player, popupMessage, this);
         startScreen = true;
         startGamePic.draw();

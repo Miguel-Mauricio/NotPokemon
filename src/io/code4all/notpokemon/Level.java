@@ -51,22 +51,11 @@ public class Level {
         elonBoss[0] = new Elon();
         bigEnemy = new BigEnemy();
 
-        LinkedList<Pokemon> pokemonsLevel1 = new LinkedList<>();
-        LinkedList<Pokemon> pokemonsLevel2 = new LinkedList<>();
-        LinkedList<Pokemon> pokemonsLevel3 = new LinkedList<>();
-        for (Pokemon p : pokemons)
-            if (p.getLevel() == 1)
-                pokemonsLevel1.add(p);
-            else if (p.getLevel() == 2)
-                pokemonsLevel2.add(p);
-            else
-                pokemonsLevel3.add(p);
-
         dangerZones = new DangerZone[4];
-        dangerZones[0] = new HighGrass(75, 700, pokemonsLevel1);
-        dangerZones[1] = new HighGrass(240,660, pokemonsLevel1);
-        dangerZones[2] = new Water(860, 45, pokemonsLevel1);
-        dangerZones[3] = new Lava(1050, 350, pokemonsLevel1);
+        dangerZones[0] = new HighGrass(75, 700, pokemons);
+        dangerZones[1] = new HighGrass(240,660, pokemons);
+        dangerZones[2] = new Water(860, 45, pokemons);
+        dangerZones[3] = new Lava(1050, 350, pokemons);
 
         battleGround = new BattleGround(player.getPokemon(), pokemons.get(0));
 

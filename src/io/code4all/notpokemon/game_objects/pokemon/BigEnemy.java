@@ -7,7 +7,7 @@ public class BigEnemy extends Pokemon{
 
 
     public BigEnemy() {
-        super("BigEnemy", 2, 200, 20, 50, "player");
+        super("BigEnemy", 4, 200, 20, 50, "player");
         Picture p = new Picture(0,0, "io/code4all/notpokemon/pictures/demonMusk.png");
         p.translate(Game.GAME_WIDTH - p.getWidth() - Game.PADDING, Game.GAME_HEIGHT/2 + 100 - p.getHeight()/2);
         picture = p;

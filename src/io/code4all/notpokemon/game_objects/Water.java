@@ -6,7 +6,7 @@ import io.code4all.notpokemon.game_objects.pokemon.Pokemon;
 import java.util.LinkedList;
 
 public class  Water extends DangerZone {
-    private static final int LEVEL = 1;
+    private static final int LEVEL = 2;
 
     public Water (int x, int y, LinkedList<Pokemon> pokemons) {
         super(Pokemon.getPokemon(LEVEL, pokemons));

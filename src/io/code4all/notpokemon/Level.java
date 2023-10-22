@@ -127,8 +127,15 @@ public class Level {
                             d.setNewPokemon(d.getPokemon().getLevel(), pokemons);
                         }
                     }
-                else
+                else{
+
                     battleGround.fight(popupMessage);
+                    try {
+                        Thread.sleep(10);
+                    } catch (InterruptedException e) {
+                        System.out.println(e);
+                    }
+                }
             }
         }
     }

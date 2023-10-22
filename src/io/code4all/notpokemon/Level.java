@@ -128,7 +128,6 @@ public class Level {
                         }
                     }
                 else{
-
                     battleGround.fight(popupMessage);
                     try {
                         Thread.sleep(10);

@@ -114,7 +114,7 @@ public class Level {
                 }
             }
             while (!player.getPokemon().isDead() && !battleGround.getPokemon().isDead()) {
-                if (player.checkPlayerPositionWithOtherObj(player.getPicture().getMaxX(), player.getPicture().getMaxY(), elonBoss[0])) {
+                if (!battleGround.isReady() && player.checkPlayerPositionWithOtherObj(player.getPicture().getMaxX(), player.getPicture().getMaxY(), elonBoss[0])) {
                     battleGround.setIsReady(true);
                     startBattle(bigEnemy);
                 }

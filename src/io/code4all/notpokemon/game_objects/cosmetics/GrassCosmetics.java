@@ -2,7 +2,7 @@ package io.code4all.notpokemon.game_objects.cosmetics;
 
 public class GrassCosmetics extends Cosmetics {
     public GrassCosmetics(int x, int y){
-        setPicture(x, y, "io/code4all/notpokemon/pictures/bigGrass.png");
+        setPicture(x, y, "bigGrass.png");
         this.picture.draw();
     }
 

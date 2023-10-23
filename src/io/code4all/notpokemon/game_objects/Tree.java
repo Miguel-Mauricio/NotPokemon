@@ -2,7 +2,7 @@ package io.code4all.notpokemon.game_objects;
 
 public class Tree extends Solid{
     public Tree(int x, int y){
-        setPicture(x, y, "io/code4all/notpokemon/pictures/invisWall.png");
+        setPicture(x, y, "invisWall.png");
         this.picture.draw();
     }
 

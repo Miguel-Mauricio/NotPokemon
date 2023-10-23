@@ -3,7 +3,7 @@ package io.code4all.notpokemon.game_objects.cosmetics;
 public class Flowers extends Cosmetics{
 
     public Flowers(int x, int y){
-        setPicture(x, y, "io/code4all/notpokemon/pictures/flowers.png");
+        setPicture(x, y, "flowers.png");
         this.picture.draw();
     }
 

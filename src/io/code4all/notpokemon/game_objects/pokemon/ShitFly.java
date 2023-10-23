@@ -6,7 +6,7 @@ public class ShitFly extends Pokemon{
 
     public ShitFly() {
         super("ShitFly", 1, 180, 25, 30, "FIRE");
-        Picture p = new Picture(0,0, "io/code4all/notpokemon/pictures/flyEnemy.png");
+        Picture p = new Picture(0,0, "flyEnemy.png");
         p.translate(Game.GAME_WIDTH - p.getWidth() - Game.PADDING, Game.GAME_HEIGHT/2 + 100 - p.getHeight()/2);
         picture = p;
     }

@@ -1,6 +1,5 @@
 package io.code4all.notpokemon;
 
-import io.code4all.notpokemon.game_objects.DangerZone;
 import io.code4all.notpokemon.game_objects.GameObject;
 import io.code4all.notpokemon.game_objects.Solid;
 import io.code4all.notpokemon.game_objects.pokemon.Pokemon;
@@ -22,7 +21,7 @@ public class Player {
 
     public Player() {
         move = true;
-        this.picture = new Picture(160, 140, "io/code4all/notpokemon/pictures/player.png");
+        this.picture = new Picture(160, 140, "player.png");
     }
 
 
@@ -108,7 +107,7 @@ public class Player {
 
     public void setPosition(int x, int y) {
         this.picture.delete();
-        this.picture = new Picture(x, y, "io/code4all/notpokemon/pictures/player.png");
+        this.picture = new Picture(x, y, "player.png");
         this.picture.draw();
     }
 }

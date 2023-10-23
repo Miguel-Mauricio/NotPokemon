@@ -1,7 +1,5 @@
 package io.code4all.notpokemon;
 
-import io.code4all.notpokemon.game_objects.DangerZone;
-import io.code4all.notpokemon.game_objects.pokemon.PlayerPoke;
 import io.code4all.notpokemon.game_objects.pokemon.Pokemon;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.simplegraphics.graphics.Text;
@@ -27,16 +25,16 @@ public class BattleGround {
     private Picture typePic;
 
     public BattleGround(Pokemon playerPokemon, Pokemon pokemon) {
-        Picture p = new Picture(Game.PADDING, Game.PADDING, "io/code4all/notpokemon/pictures/battleBackground.jpg");
+        Picture p = new Picture(Game.PADDING, Game.PADDING, "battleBackground.jpg");
         this.background = new Background(new Rectangle(Game.PADDING, Game.PADDING, Game.GAME_WIDTH, Game.GAME_HEIGHT), p);
         this.playerPokemon = playerPokemon;
         this.pokemon = pokemon;
         this.playerPokemonInitialX = playerPokemon.getPicture().getX();
         this.pokemonInitialX = pokemon.getPicture().getX();
-        this.playerBoard = new Picture(30, Game.PADDING, "io/code4all/notpokemon/pictures/woodenBoard.png");
-        this.pokemonBoard = new Picture(850, Game.PADDING, "io/code4all/notpokemon/pictures/woodenBoard.png");
-        this.heart1 = new Picture(100, Game.PADDING + 90, "io/code4all/notpokemon/pictures/heart.png");
-        this.heart2 = new Picture(920, Game.PADDING + 90, "io/code4all/notpokemon/pictures/heart.png");
+        this.playerBoard = new Picture(30, Game.PADDING, "woodenBoard.png");
+        this.pokemonBoard = new Picture(850, Game.PADDING, "woodenBoard.png");
+        this.heart1 = new Picture(100, Game.PADDING + 90, "heart.png");
+        this.heart2 = new Picture(920, Game.PADDING + 90, "heart.png");
         this.playerBoardText = new Text(heart1.getMaxX() + 50, heart1.getY() + 20, String.valueOf(playerPokemon.getHealth()));
         this.pokemonBoardText = new Text(heart2.getMaxX() + 50, heart2.getY() + 20, String.valueOf(pokemon.getHealth()));
         this.playerBoardText.grow(40, 40);
@@ -58,16 +56,16 @@ public class BattleGround {
         this.pokemonBoardText.draw();
         switch (pokemon.getType()) {
             case "FIRE":
-                typePic = new Picture(pokemonBoard.getMaxX() - pokemonBoard.getWidth() / 2, pokemonBoard.getMaxY(), "io/code4all/notpokemon/pictures/fireIcon.png");
+                typePic = new Picture(pokemonBoard.getMaxX() - pokemonBoard.getWidth() / 2, pokemonBoard.getMaxY(), "fireIcon.png");
                 break;
             case "GRASS":
-                typePic = new Picture(pokemonBoard.getMaxX() - pokemonBoard.getWidth() / 2, pokemonBoard.getMaxY(), "io/code4all/notpokemon/pictures/grassIcon.png");
+                typePic = new Picture(pokemonBoard.getMaxX() - pokemonBoard.getWidth() / 2, pokemonBoard.getMaxY(), "grassIcon.png");
                 break;
             case "WATER":
-                typePic = new Picture(pokemonBoard.getMaxX() - pokemonBoard.getWidth() / 2, pokemonBoard.getMaxY(), "io/code4all/notpokemon/pictures/waterIcon.png");
+                typePic = new Picture(pokemonBoard.getMaxX() - pokemonBoard.getWidth() / 2, pokemonBoard.getMaxY(), "waterIcon.png");
                 break;
             default:
-                typePic = new Picture(pokemonBoard.getMaxX() - pokemonBoard.getWidth() / 2, pokemonBoard.getMaxY(), "io/code4all/notpokemon/pictures/invisWall.png");
+                typePic = new Picture(pokemonBoard.getMaxX() - pokemonBoard.getWidth() / 2, pokemonBoard.getMaxY(), "invisWall.png");
         }
         if (typePic != null)
             this.typePic.draw();

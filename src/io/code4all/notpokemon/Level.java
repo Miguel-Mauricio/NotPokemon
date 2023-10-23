@@ -82,13 +82,13 @@ public class Level {
         while (true) {
             System.out.println(player.getPokemon());
             if (bigEnemy.getHealth() <= 0) {
-                Background gameOverWin = new Background(new Rectangle(Game.PADDING, Game.PADDING, Game.GAME_WIDTH, Game.GAME_HEIGHT), new Picture(Game.PADDING, Game.PADDING, "io/code4all/notpokemon/pictures/gameOverWin.png"));
+                Background gameOverWin = new Background(new Rectangle(Game.PADDING, Game.PADDING, Game.GAME_WIDTH, Game.GAME_HEIGHT), new Picture(Game.PADDING, Game.PADDING, "gameOverWin.png"));
                 gameOverWin.draw();
                 return;
             }
             if (player.getPokemon().isDead()) {
                 System.out.println("GAME OVER BABY!!!");
-                Background gameOver = new Background(new Rectangle(Game.PADDING, Game.PADDING, Game.GAME_WIDTH, Game.GAME_HEIGHT), new Picture(Game.PADDING, Game.PADDING, "io/code4all/notpokemon/pictures/gameOver.png"));
+                Background gameOver = new Background(new Rectangle(Game.PADDING, Game.PADDING, Game.GAME_WIDTH, Game.GAME_HEIGHT), new Picture(Game.PADDING, Game.PADDING, "gameOver.png"));
                 gameOver.draw();
                 return  ;
             }

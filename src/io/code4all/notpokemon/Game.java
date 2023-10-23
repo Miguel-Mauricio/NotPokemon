@@ -1,7 +1,6 @@
 package io.code4all.notpokemon;
 
 import io.code4all.notpokemon.game_objects.pokemon.*;
-import io.code4all.notpokemon.sound.BackgroundMusic;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
@@ -27,8 +26,8 @@ public class Game {
     private boolean startScreen;
 
     public void init() throws InterruptedException {
-        this.startGamePic = new Background(new Rectangle(PADDING, PADDING, GAME_WIDTH, GAME_HEIGHT), new Picture(PADDING, PADDING, "io/code4all/notpokemon/pictures/mainMenuFinal.png"));
-        this.backgroundLevel1 = new Background(new Rectangle(PADDING, PADDING, GAME_WIDTH, GAME_HEIGHT), new Picture(PADDING, PADDING, "io/code4all/notpokemon/pictures/grassBackground.png"));
+        this.startGamePic = new Background(new Rectangle(PADDING, PADDING, GAME_WIDTH, GAME_HEIGHT), new Picture(PADDING, PADDING, "mainMenuFinal.png"));
+        this.backgroundLevel1 = new Background(new Rectangle(PADDING, PADDING, GAME_WIDTH, GAME_HEIGHT), new Picture(PADDING, PADDING, "grassBackground.png"));
         this.player = new Player();
         this.pokemons = new LinkedList<>();
         this.popupMessage = new PopupMessage();

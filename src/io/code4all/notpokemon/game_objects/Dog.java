@@ -2,7 +2,7 @@ package io.code4all.notpokemon.game_objects;
 
 public class Dog extends Solid {
     public Dog(int x, int y) {
-        setPicture(x, y, "io/code4all/notpokemon/pictures/dog.png");
+        setPicture(x, y, "dog.png");
         this.picture.draw();
     }
 

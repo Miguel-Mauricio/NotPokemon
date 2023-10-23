@@ -8,7 +8,7 @@ public class  Lava extends DangerZone {
 
     public Lava (int x, int y, LinkedList<Pokemon> pokemons) {
         super(Pokemon.getPokemon(LEVEL, pokemons));
-        setPicture(x, y, "io/code4all/notpokemon/pictures/invisWall.png");
+        setPicture(x, y, "invisWall.png");
         this.picture.draw();
     }
 

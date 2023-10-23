@@ -143,6 +143,7 @@ public class Level {
     public void startBattle(Pokemon p) {
         // playTransition(); TODO
         player.setMove(false);
+        player.getPokemon().setSpecial(true);
         battleGround.setPokemon(p);
         battleGround.draw();
     }

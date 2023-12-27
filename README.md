@@ -11,12 +11,12 @@ https://miguelmauricio.itch.io/vimmons
 
 ## Project story:
 
-This project was made to enter a GameJam @ CodeForAll_
-GameJam: https://itch.io/jam/game-jam-4
-Game Page: https://miguelmauricio.itch.io/vimmons
-Project made by:
-João Flor
-Miguel Maurício
-Frederico Pereira
-Tiago Magalhães
+This project was made to enter a GameJam @ CodeForAll_  
+GameJam: https://itch.io/jam/game-jam-4  
+Game Page: https://miguelmauricio.itch.io/vimmons  
+Project made by:  
+João Flor  
+Miguel Maurício  
+Frederico Pereira  
+Tiago Magalhães  
 Santino Kuhlcke

@@ -15,8 +15,8 @@ This project was made to enter a GameJam @ CodeForAll_
 GameJam: https://itch.io/jam/game-jam-4  
 Game Page: https://miguelmauricio.itch.io/vimmons  
 Project made by:  
+Frederico Pereira  
 João Flor  
 Miguel Maurício  
-Frederico Pereira  
 Tiago Magalhães  
 Santino Kuhlcke

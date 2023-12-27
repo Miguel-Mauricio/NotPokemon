@@ -6,7 +6,7 @@ In this evil society, the Tyrant Musk wants to keep all knowledge for himself, s
 Think you've got what it takes?
 
 ## How to run:
-Download and run jar from:
+Download and run jar from:  
 https://miguelmauricio.itch.io/vimmons
 
 ## Project story:
